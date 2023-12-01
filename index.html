@@ -91,15 +91,43 @@
     <script src = 'https://telegram.org/js/telegram-web-app.js'></script>
     <script>
         let tg = window.Telegram.WebApp;
-        let buy = document.getElementById("zakaz1");
+        let zakaz1 = document.getElementById("zakaz1");
+	let zakaz2 = document.getElementById("zakaz2");
+	let zakaz3 = document.getElementById("zakaz3");
+	let zakaz4 = document.getElementById("zakaz4");
         let order = document.getElementById("order");
-        buy.addEventListener("click", () => {
+	tg.expand();
+        zakaz1.addEventListener("click", () => {
+            document.getElementById("main").style.display = "none";
+            document.getElementById("form").style.display = "block";
+            document.getElementById("user_name").value = tg.initDataUnsafe.user.first_name + " " + tg.initDataUnsafe.user.last_name;
+        })
+		zakaz2.addEventListener("click", () => {
+            document.getElementById("main").style.display = "none";
+            document.getElementById("form").style.display = "block";
+            document.getElementById("user_name").value = tg.initDataUnsafe.user.first_name + " " + tg.initDataUnsafe.user.last_name;
+        })
+		zakaz3.addEventListener("click", () => {
+            document.getElementById("main").style.display = "none";
+            document.getElementById("form").style.display = "block";
+            document.getElementById("user_name").value = tg.initDataUnsafe.user.first_name + " " + tg.initDataUnsafe.user.last_name;
+        })
+		zakaz4.addEventListener("click", () => {
             document.getElementById("main").style.display = "none";
             document.getElementById("form").style.display = "block";
             document.getElementById("user_name").value = tg.initDataUnsafe.user.first_name + " " + tg.initDataUnsafe.user.last_name;
         })
         order.addEventListener("click", () => {
-            tg.close();
+                let name = document.getElementById("user_name").value;
+		let email = document.getElementById("user_email").value;
+		let phone = document.getElementById("user_phone").value;
+		let data = {
+			name: name;
+			email: email;
+			phone: phone
+		}
+		tg.sendData(JSON.stringify(data));
+		tg.close();
         })
     </script>
 </body>
