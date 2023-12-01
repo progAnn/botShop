@@ -55,23 +55,23 @@
     <script>
         let tg = window.Telegram.WebApp;
         let zakaz1 = document.getElementById("zakaz1");
-		let zakaz2 = document.getElementById("zakaz2");
-		let zakaz3 = document.getElementById("zakaz3");
+	let zakaz2 = document.getElementById("zakaz2");
+	let zakaz3 = document.getElementById("zakaz3");
         let order = document.getElementById("order");
         zakaz1.addEventListener("click", () => {
             document.getElementById("main").style.display = "none";
             document.getElementById("form").style.display = "block";
         })
-		zakaz2.addEventListener("click", () => {
+	zakaz2.addEventListener("click", () => {
             document.getElementById("main").style.display = "none";
             document.getElementById("form").style.display = "block";
         })
-		zakaz3.addEventListener("click", () => {
+	zakaz3.addEventListener("click", () => {
             document.getElementById("main").style.display = "none";
             document.getElementById("form").style.display = "block";
         })
         order.addEventListener("click", () => {
-		let name = document.getElementById("user_name").value;
+	    let name = document.getElementById("user_name").value;
 	    let email = document.getElementById("user_email").value;
 	    let phone = document.getElementById("user_phone").value;
 
@@ -80,8 +80,7 @@
 		    email: email,
 		    phone: phone
 	    }
-		tg.sendData(JSON.stringify(data));
-		tg.close();
+	    tg.sendData(JSON.stringify(data));
             tg.close();
         })
     </script>
