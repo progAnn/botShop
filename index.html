@@ -6,6 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
+	<div>
 	<div class="products__container" id="main">
 		<ul class="imdiz-products imdiz-products_row">
 			<li class="imdiz-product">
@@ -88,6 +89,7 @@
 	        <input type="text" placeholder="Телефон" id="user_phone">
 	        <button id="order">Оформить</button>
     	</form>
+</div>
     <script src = 'https://telegram.org/js/telegram-web-app.js'></script>
     <script>
         let tg = window.Telegram.WebApp;
@@ -100,22 +102,18 @@
         zakaz1.addEventListener("click", () => {
             document.getElementById("main").style.display = "none";
             document.getElementById("form").style.display = "block";
-            document.getElementById("user_name").value = tg.initDataUnsafe.user.first_name + " " + tg.initDataUnsafe.user.last_name;
         })
 		zakaz2.addEventListener("click", () => {
             document.getElementById("main").style.display = "none";
             document.getElementById("form").style.display = "block";
-            document.getElementById("user_name").value = tg.initDataUnsafe.user.first_name + " " + tg.initDataUnsafe.user.last_name;
         })
 		zakaz3.addEventListener("click", () => {
             document.getElementById("main").style.display = "none";
             document.getElementById("form").style.display = "block";
-            document.getElementById("user_name").value = tg.initDataUnsafe.user.first_name + " " + tg.initDataUnsafe.user.last_name;
         })
 		zakaz4.addEventListener("click", () => {
             document.getElementById("main").style.display = "none";
             document.getElementById("form").style.display = "block";
-            document.getElementById("user_name").value = tg.initDataUnsafe.user.first_name + " " + tg.initDataUnsafe.user.last_name;
         })
         order.addEventListener("click", () => {
                 let name = document.getElementById("user_name").value;
