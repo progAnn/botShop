@@ -13,7 +13,7 @@
 						<img src="hotdog.png" alt="Изображение продукта"/>
 					</div>
 					<div>
-						<p></p>Хотдог "Классика"</p>
+						<p>Хотдог "Классика"</p>
 						<p class="imdiz-product__price">256 ₽</p>
 					</div>
 					<button id="zakaz1" class="imdiz-product__submit">ЗАКАЗАТЬ</button>
@@ -25,7 +25,7 @@
 						<img src="fish.png" alt="Изображение продукта"/>
 					</div>
 					<div>
-						<p></p>Запеченная рыба</p>
+						<p>Запеченная рыба</p>
 						<p class="imdiz-product__price">599 ₽</p>
 					</div>
 					<button id="zakaz2" class="imdiz-product__submit">ЗАКАЗАТЬ</button>
@@ -37,7 +37,7 @@
 						<img src="kombo.png" alt="Изображение продукта"/>
 					</div>
 					<div>
-						<p></p>Комбо "3 в 1"</p>
+						<p>Комбо "3 в 1"</p>
 						<p class="imdiz-product__price">459 ₽</p>
 					</div>
 					<button id="zakaz3" class="imdiz-product__submit">ЗАКАЗАТЬ</button>
@@ -49,7 +49,7 @@
 	        <input type="text" placeholder="Имя" id="user_name">
 	        <input type="text" placeholder="Email" id="user_email">
 	        <input type="text" placeholder="Телефон" id="user_phone">
-	        <button id="order">Оформить</button>
+	        <button id="order" class="imdiz-product__submit">Оформить</button>
     	</form>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script>
@@ -62,26 +62,16 @@
             document.getElementById("main").style.display = "none";
             document.getElementById("form").style.display = "block";
         })
-	zakaz2.addEventListener("click", () => {
+		zakaz2.addEventListener("click", () => {
             document.getElementById("main").style.display = "none";
             document.getElementById("form").style.display = "block";
         })
-	zakaz3.addEventListener("click", () => {
+		zakaz3.addEventListener("click", () => {
             document.getElementById("main").style.display = "none";
             document.getElementById("form").style.display = "block";
         })
         order.addEventListener("click", () => {
-            let name = document.getElementById("user_name").value;
-	    let email = document.getElementById("user_email").value;
-	    let phone = document.getElementById("user_phone").value;
-	    
-	    let data = {
-		    name: name,
-		    email: email,
-		    phone: phone
-	    }
-		tg.sendData(JSON.stringify(data));
-		tg.close();
+            tg.close();
         })
     </script>
 </body>
@@ -105,6 +95,7 @@ li {
 p {
     margin: 0;
     padding: 0;
+	text-align: center;
 }
 .setka{
     display: flex;
@@ -158,5 +149,10 @@ input{
 }
 input:focus{
 	border-color: #db5d5d;
+}
+img{
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 </style>
