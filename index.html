@@ -10,7 +10,7 @@
 			<li class="imdiz-product">
 				<div class="imdiz-product__inner">
 					<div>
-						<img src="image/hotdog.png" alt="Изображение продукта"/>
+						<img src="hotdog.png" alt="Изображение продукта"/>
 					</div>
 					<div>
 						<p></p>Хотдог "Классика"</p>
@@ -22,11 +22,11 @@
 			<li class="imdiz-product">
 				<div class="imdiz-product__inner">
 					<div>
-						<img src="image/hotdog.png" alt="Изображение продукта"/>
+						<img src="fish.png" alt="Изображение продукта"/>
 					</div>
 					<div>
-						<p></p>Хотдог "Классика"</p>
-						<p class="imdiz-product__price">256 ₽</p>
+						<p></p>Запеченная рыба</p>
+						<p class="imdiz-product__price">599 ₽</p>
 					</div>
 					<button id="zakaz2" class="imdiz-product__submit">ЗАКАЗАТЬ</button>
 				</div>
@@ -34,11 +34,11 @@
 			<li class="imdiz-product">
 				<div class="imdiz-product__inner">
 					<div>
-						<img src="image/hotdog.png" alt="Изображение продукта"/>
+						<img src="kombo.png" alt="Изображение продукта"/>
 					</div>
 					<div>
-						<p></p>Хотдог "Классика"</p>
-						<p class="imdiz-product__price">256 ₽</p>
+						<p></p>Комбо "3 в 1"</p>
+						<p class="imdiz-product__price">459 ₽</p>
 					</div>
 					<button id="zakaz3" class="imdiz-product__submit">ЗАКАЗАТЬ</button>
 				</div>
@@ -62,16 +62,26 @@
             document.getElementById("main").style.display = "none";
             document.getElementById("form").style.display = "block";
         })
-		zakaz2.addEventListener("click", () => {
+	zakaz2.addEventListener("click", () => {
             document.getElementById("main").style.display = "none";
             document.getElementById("form").style.display = "block";
         })
-		zakaz3.addEventListener("click", () => {
+	zakaz3.addEventListener("click", () => {
             document.getElementById("main").style.display = "none";
             document.getElementById("form").style.display = "block";
         })
         order.addEventListener("click", () => {
-            tg.close();
+            let name = document.getElementById("user_name").value;
+	    let email = document.getElementById("user_email").value;
+	    let phone = document.getElementById("user_phone").value;
+	    
+	    let data = {
+		    name: name,
+		    email: email,
+		    phone: phone
+	    }
+		tg.sendData(JSON.stringify(data));
+		tg.close();
         })
     </script>
 </body>
