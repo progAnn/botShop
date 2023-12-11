@@ -1,80 +1,72 @@
-<!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
 	<title>Заказы</title>
 </head>
 <body>
-	<form class="container" id="main">
-		<ul class="setka">
-			<li class="imdiz-product">
-				<div class="imdiz-product__inner">
-					<div>
-						<img src="hotdog.png" alt="Изображение продукта"/>
+	<div class='osnova'>
+		<div class='osnova-form'>
+			<!--label class="tab active">Заказы</label>
+			<label class="tab">Доставка</label-->
+			<form class="tab-form" id="main">
+				<ul class="tab-form">
+					<li class="imdiz-product">
+					<div class="imdiz-product__inner">
+						<div>
+							<img src="hotdog.png" alt="Изображение продукта"/>
+						</div>
+						<div>
+							<p>Хотдог "Классика"</p>
+							<p class="imdiz-product__price">256 ₽</p>
+						</div>
+						<button id="zakaz1">ЗАКАЗАТЬ</button>
 					</div>
-					<div>
-						<p>Хотдог "Классика"</p>
-						<p class="imdiz-product__price">256 ₽</p>
-					</div>
-					<button id="zakaz1" class="imdiz-product__submit">ЗАКАЗАТЬ</button>
-				</div>
-			</li>
-			<li class="imdiz-product">
-				<div class="imdiz-product__inner">
-					<div>
-						<img src="fish.png" alt="Изображение продукта"/>
-					</div>
-					<div>
-						<p>Запеченная рыба</p>
-						<p class="imdiz-product__price">599 ₽</p>
-					</div>
-					<button id="zakaz2" class="imdiz-product__submit">ЗАКАЗАТЬ</button>
-				</div>
-			</li>
-			<li class="imdiz-product">
-				<div class="imdiz-product__inner">
-					<div>
-						<img src="kombo.png" alt="Изображение продукта"/>
-					</div>
-					<div>
-						<p>Комбо "3 в 1"</p>
-						<p class="imdiz-product__price">459 ₽</p>
-					</div>
-					<button id="zakaz3" class="imdiz-product__submit">ЗАКАЗАТЬ</button>
-				</div>
-			</li>
-		</ul>
-	</form>
-	<form id="form" class="qq">
-	        <input type="text" placeholder="Имя" id="user_name">
-	        <input type="text" placeholder="Email" id="user_email">
-	        <input type="text" placeholder="Телефон" id="user_phone">
-	        <button id="order" class="imdiz-product__submit">Оформить</button>
-    	</form>
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+					</li>
+					<li class="imdiz-product">
+						<div class="imdiz-product__inner">
+							<div>
+								<img src="fish.png" alt="Изображение продукта"/>
+							</div>
+							<div>
+								<p>Запеченная рыба</p>
+								<p class="imdiz-product__price">599 ₽</p>
+							</div>
+							<button id="zakaz2">ЗАКАЗАТЬ</button>
+						</div>
+					</li>
+
+				</ul>
+			</form>
+			<form class="tab-form" id="form">
+				<input type="text" placeholder="Имя" id="user_name">
+				<input type="text" placeholder="Email" id="user_email">
+				<input type="text" placeholder="Телефон" id="user_phone">
+				<button id="order">Оформить</button>
+			</form>
+		</div>
+	</div>
+	<script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script>
+        document.getElementById("main").classList.add("active");
         let tg = window.Telegram.WebApp;
         let zakaz1 = document.getElementById("zakaz1");
-	let zakaz2 = document.getElementById("zakaz2");
-	let zakaz3 = document.getElementById("zakaz3");
+        let zakaz2 = document.getElementById("zakaz2");
         let order = document.getElementById("order");
+        let a;
         zakaz1.addEventListener("click", () => {
-            document.getElementById("main").style.display = "none";
-            document.getElementById("form").style.display = "block";
+            document.getElementById("main").classList.remove("active");
+            document.getElementById("form").classList.add("active");
+            a="zakaz1";
         })
-	zakaz2.addEventListener("click", () => {
-            document.getElementById("main").style.display = "none";
-            document.getElementById("form").style.display = "block";
-        })
-	zakaz3.addEventListener("click", () => {
-            document.getElementById("main").style.display = "none";
-            document.getElementById("form").style.display = "block";
+	    zakaz2.addEventListener("click", () => {
+            document.getElementById("main").classList.remove("active");
+            document.getElementById("form").classList.add("active");
+            a = "zakaz2";
         })
         order.addEventListener("click", () => {
 	    let name = document.getElementById("user_name").value;
 	    let email = document.getElementById("user_email").value;
 	    let phone = document.getElementById("user_phone").value;
-
 	    let data = {
 		    name: name,
 		    email: email,
@@ -87,69 +79,32 @@
 </body>
 </html>
 <style>
-html, body{
-    margin: 0;
-    font-size: 16px;
-    font-family: Roboto;
+body{
+	background-image: url("image/fon1.jpg");
+	-webkit-background-size: cover;
+	background-size: cover;
 }
-button {
-    outline: 0;
-    border: none;
-    background: none;
-    cursor: pointer;
+.osnova{
+	display: flex;
+	height: 100vh;
+	justify-content: center;
+	align-items: center;
 }
+.osnova-form{
+	background-color: rgba(255, 255, 255, 0.5);
+	padding: 10px;
+	width: 500px;
 
-li {
-    list-style: none;
+
 }
-p {
-    margin: 0;
-    padding: 0;
-	text-align: center;
+.osnova-form ul{
+	display: grid;
+	grid-template-columns: 50% 50%;
+	list-style: none;
+	padding: 10px;
 }
-.setka{
-    display: flex;
-    flex-wrap: wrap;
-}
-.container {
-	display: block;
-}
-.imdiz-product{
+.osnova-form li{
     padding: 10px;
-}
-.imdiz-product__inner{
-    padding: 20px;
-    border: 1px solid #ededed;
-    transition: all .3s;
-}
-.imdiz-product__inner:hover{
-    border-color: #cb2d41;
-}
-.imdiz-product__price{
-    font-size: 22px;
-    text-align: center;
-    padding: 20px 0;
-}
-.imdiz-product__submit{
-    background-color: #cb2d41;
-    border: 1px solid #cb2d41;
-    width: 168px;
-    height: 41px;
-    color: #fff;
-    font-size: 18px;
-    padding: 0;
-    display: block;
-    margin: 0 auto;
-    cursor: pointer;
-    transition: all .3s;
-}
-.imdiz-product__submit:hover{
-    background-color: #fff;
-    color: #cb2d41;
-}
-.qq {
-    display: none;
-    text-align: center;
 }
 input{
 	width: 90%;
@@ -167,5 +122,57 @@ img{
 	display: block;
     margin-left: auto;
     margin-right: auto;
+}
+p {
+    margin: 0;
+    padding: 10px 0;
+	text-align: center;
+}
+.imdiz-product__inner{
+    padding: 20px;
+	width: 170px;
+	height: 200px;
+    border: 1px solid #ededed;
+    transition: all .3s;
+}
+.imdiz-product__inner:hover{
+    border-color: #cb2d41;
+}
+button{
+    background-color: #cb2d41;
+    border: 1px solid #cb2d41;
+    width: 160px;
+    height: 40px;
+    color: #fff;
+    font-size: 18px;
+    display: block;
+    margin: 0 auto;
+    padding: 10px;
+}
+button:hover{
+    background-color: #fff;
+    color: #cb2d41;
+}
+
+.tab-form.active{
+    display: block;
+}
+.tab-form{
+	background-color: khaki;
+    display: none;
+}
+
+.tab{
+	color: white;
+	font-weight: 600;
+	padding: 15px;
+	display: inline-block;
+	border-radius: 5px;
+	margin-bottom: -20px;
+	cursor: pointer;
+}
+.tab.active{
+	background-color: khaki;
+	color: #cb2d41;
 }
 </style>
