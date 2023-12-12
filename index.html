@@ -12,50 +12,34 @@
 				<ul class="tab-form">
 					<li class="imdiz-product">
 						<div class="imdiz-product__inner">
-							<div>
-								<img src="hotdog.png" alt="Изображение продукта"/>
-							</div>
-							<div>
-								<p>Хотдог "Классика"</p>
-								<p class="imdiz-product__price">256 ₽</p>
-							</div>
+							<img src="hotdog.png" alt="Изображение продукта"/>
+							<p>Хотдог "Классика"</p>
+							<p class="imdiz-product__price">256 ₽</p>
 							<button id="zakaz1">ЗАКАЗАТЬ</button>
 						</div>
 					</li>
 					<li class="imdiz-product">
 						<div class="imdiz-product__inner">
-							<div>
-								<img src="fish.png" alt="Изображение продукта"/>
-							</div>
-							<div>
-								<p>Запеченная рыба</p>
-								<p class="imdiz-product__price">599 ₽</p>
-							</div>
+							<img src="fish.png" alt="Изображение продукта"/>
+							<p>Запеченная рыба</p>
+							<p class="imdiz-product__price">599 ₽</p>
 							<button id="zakaz2">ЗАКАЗАТЬ</button>
 						</div>
 					</li>
 					<li class="imdiz-product">
 						<div class="imdiz-product__inner">
-							<div>
-								<img src="hotdog.png" alt="Изображение продукта"/>
-							</div>
-							<div>
-								<p>Хотдог "Классика"</p>
-								<p class="imdiz-product__price">256 ₽</p>
-							</div>
-							<button id="zakaz1">ЗАКАЗАТЬ</button>
+							<img src="burger.png" alt="Изображение продукта"/>
+							<p>Бургер "ГрандГолд"</p>
+							<p class="imdiz-product__price">369 ₽</p>
+							<button id="zakaz3">ЗАКАЗАТЬ</button>
 						</div>
 					</li>
 					<li class="imdiz-product">
 						<div class="imdiz-product__inner">
-							<div>
-								<img src="fish.png" alt="Изображение продукта"/>
-							</div>
-							<div>
-								<p>Запеченная рыба</p>
-								<p class="imdiz-product__price">599 ₽</p>
-							</div>
-							<button id="zakaz2">ЗАКАЗАТЬ</button>
+							<img src="tako.png" alt="Изображение продукта"/>
+							<p>Тако</p>
+							<p class="imdiz-product__price">210 ₽</p>
+							<button id="zakaz4">ЗАКАЗАТЬ</button>
 						</div>
 					</li>
 				</ul>
@@ -74,6 +58,8 @@
         let tg = window.Telegram.WebApp;
         let zakaz1 = document.getElementById("zakaz1");
         let zakaz2 = document.getElementById("zakaz2");
+	let zakaz3 = document.getElementById("zakaz3");
+	let zakaz4 = document.getElementById("zakaz4");
         let order = document.getElementById("order");
         let a;
 	tg.expand();
@@ -82,7 +68,17 @@
             document.getElementById("form").classList.add("active");
             a="zakaz1";
         })
-	    zakaz2.addEventListener("click", () => {
+	zakaz2.addEventListener("click", () => {
+            document.getElementById("main").classList.remove("active");
+            document.getElementById("form").classList.add("active");
+            a = "zakaz2";
+        })
+	zakaz3.addEventListener("click", () => {
+            document.getElementById("main").classList.remove("active");
+            document.getElementById("form").classList.add("active");
+            a = "zakaz2";
+        })
+	zakaz4.addEventListener("click", () => {
             document.getElementById("main").classList.remove("active");
             document.getElementById("form").classList.add("active");
             a = "zakaz2";
