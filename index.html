@@ -61,36 +61,38 @@
 	let zakaz3 = document.getElementById("zakaz3");
 	let zakaz4 = document.getElementById("zakaz4");
         let order = document.getElementById("order");
-        let a;
+        let zakaz;
 	tg.expand();
         zakaz1.addEventListener("click", () => {
             document.getElementById("main").classList.remove("active");
             document.getElementById("form").classList.add("active");
-            a="zakaz1";
+            zakaz="Хотдог";
         })
 	zakaz2.addEventListener("click", () => {
             document.getElementById("main").classList.remove("active");
             document.getElementById("form").classList.add("active");
-            a = "zakaz2";
+            zakaz = "Рыба";
         })
 	zakaz3.addEventListener("click", () => {
             document.getElementById("main").classList.remove("active");
             document.getElementById("form").classList.add("active");
-            a = "zakaz2";
+            zakaz = "Бургер";
         })
 	zakaz4.addEventListener("click", () => {
             document.getElementById("main").classList.remove("active");
             document.getElementById("form").classList.add("active");
-            a = "zakaz2";
+            zakaz = "Тако";
         })
         order.addEventListener("click", () => {
 	    let name = document.getElementById("user_name").value;
 	    let email = document.getElementById("user_email").value;
 	    let phone = document.getElementById("user_phone").value;
+		let zakazi = zakaz;
 	    let data = {
 		    name: name,
 		    email: email,
-		    phone: phone
+		    phone: phone,
+			zakaz: zakazi
 	    }
 	    tg.sendData(JSON.stringify(data));
             tg.close();
